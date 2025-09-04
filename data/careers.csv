@@ -1,0 +1,56 @@
+stream,degree,career_title,skills_needed,job_type,avg_salary,growth_prospects
+Science,B.Tech CSE,Software Developer,"Computer,Programming,Problem-solving",Private,600000,High
+Science,B.Tech CSE,Government IT Officer,"Computer,Programming,Communication",Government,450000,Medium
+Science,B.Tech Civil,Civil Engineer,"Mathematics,Design,Project Management",Both,500000,Medium
+Science,B.Tech Mechanical,Mechanical Engineer,"Mathematics,Design,Technical Skills",Both,480000,Medium
+Science,B.Tech Electrical,Electrical Engineer,"Mathematics,Technical Skills,Problem-solving",Both,520000,Medium
+Science,B.Sc Physics,Research Scientist,"Mathematics,Analysis,Laboratory Skills",Government,400000,Medium
+Science,B.Sc Physics,Lab Technician,"Laboratory Skills,Analysis,Attention to Detail",Both,300000,Medium
+Science,B.Sc Chemistry,Quality Control Analyst,"Laboratory Skills,Analysis,Attention to Detail",Both,350000,Medium
+Science,B.Sc Chemistry,Research Assistant,"Laboratory Skills,Analysis,Documentation",Government,320000,Medium
+Science,B.Sc Mathematics,Statistical Officer,"Mathematics,Analysis,Computer Skills",Government,380000,Medium
+Science,B.Sc Mathematics,Data Analyst,"Mathematics,Computer,Analysis",Private,450000,High
+Science,MBBS,Doctor,"Medical Knowledge,Communication,Empathy",Both,800000,High
+Science,BDS,Dentist,"Medical Knowledge,Manual Dexterity,Communication",Private,600000,Medium
+Science,B.Pharmacy,Pharmacist,"Medical Knowledge,Attention to Detail,Communication",Both,400000,Medium
+Science,B.Sc Nursing,Nurse,"Medical Knowledge,Communication,Empathy",Both,350000,Medium
+Science,M.Sc Chemistry,Research Scientist,"Laboratory Skills,Analysis,Research",Government,500000,Medium
+Science,M.Tech,Technical Specialist,"Advanced Technical Skills,Research,Innovation",Both,700000,High
+Arts,BA English,Teacher,"Communication,Knowledge,Patience",Government,300000,Medium
+Arts,BA English,Content Writer,"Communication,Creativity,Research",Private,350000,Medium
+Arts,BA Political Science,Civil Services Officer,"Leadership,Communication,Analysis",Government,600000,High
+Arts,BA Political Science,Administrative Officer,"Leadership,Communication,Organization",Government,450000,Medium
+Arts,BA History,Museum Curator,"Research,Communication,Cultural Knowledge",Government,320000,Low
+Arts,BA History,Archivist,"Organization,Research,Attention to Detail",Government,280000,Low
+Arts,BA Sociology,Social Worker,"Communication,Empathy,Problem-solving",Both,250000,Medium
+Arts,BA Psychology,Counselor,"Communication,Empathy,Analysis",Private,300000,Medium
+Arts,MA English,Lecturer,"Communication,Knowledge,Research",Government,500000,Medium
+Arts,MA Political Science,Policy Analyst,"Analysis,Research,Communication",Government,550000,Medium
+Arts,B.Ed,School Teacher,"Communication,Knowledge,Patience",Government,350000,Medium
+Arts,M.Ed,Principal,"Leadership,Communication,Administration",Government,600000,Medium
+Arts,BJMc,Journalist,"Communication,Research,Writing",Private,400000,Medium
+Arts,BJMc,Media Producer,"Creativity,Communication,Technical Skills",Private,500000,Medium
+Commerce,B.Com,Accountant,"Mathematics,Attention to Detail,Finance",Both,350000,Medium
+Commerce,B.Com,Bank Officer,"Communication,Mathematics,Customer Service",Government,450000,Medium
+Commerce,B.Com,Tax Consultant,"Mathematics,Finance,Analysis",Private,400000,Medium
+Commerce,BBA,Business Manager,"Leadership,Communication,Strategy",Private,500000,High
+Commerce,BBA,Marketing Executive,"Communication,Creativity,Strategy",Private,450000,High
+Commerce,B.Com,Audit Assistant,"Mathematics,Attention to Detail,Analysis",Both,320000,Medium
+Commerce,M.Com,Finance Manager,"Finance,Analysis,Leadership",Private,700000,High
+Commerce,M.Com,Economics Lecturer,"Knowledge,Communication,Research",Government,500000,Medium
+Commerce,MBA,Business Analyst,"Analysis,Strategy,Communication",Private,800000,High
+Commerce,MBA,Project Manager,"Leadership,Organization,Communication",Private,750000,High
+Commerce,CA,Chartered Accountant,"Mathematics,Finance,Analysis",Private,900000,High
+Commerce,CS,Company Secretary,"Legal Knowledge,Communication,Organization",Private,600000,Medium
+Vocational,Diploma IT,Computer Operator,"Computer,Basic Programming,Data Entry",Both,250000,Medium
+Vocational,Diploma Electronics,Technician,"Technical Skills,Problem-solving,Manual Dexterity",Both,280000,Medium
+Vocational,Diploma Mechanical,Machine Operator,"Technical Skills,Manual Dexterity,Safety",Both,300000,Medium
+Vocational,Diploma Civil,Surveyor,"Technical Skills,Mathematics,Attention to Detail",Government,320000,Medium
+Vocational,Certificate Auto,Auto Mechanic,"Technical Skills,Manual Dexterity,Problem-solving",Private,280000,Medium
+Vocational,Certificate Electrical,Electrician,"Technical Skills,Problem-solving,Safety",Both,300000,Medium
+Vocational,Certificate Plumbing,Plumber,"Manual Dexterity,Problem-solving,Technical Skills",Private,250000,Medium
+Vocational,Certificate Welding,Welder,"Manual Dexterity,Technical Skills,Attention to Detail",Both,280000,Medium
+Vocational,Diploma Tourism,Tour Guide,"Communication,Cultural Knowledge,Languages",Private,200000,Low
+Vocational,Certificate Handicraft,Artisan,"Creativity,Manual Dexterity,Traditional Skills",Private,180000,Low
+Vocational,Diploma Beauty,Beauty Therapist,"Manual Dexterity,Creativity,Customer Service",Private,200000,Medium
+Vocational,Certificate Cooking,Chef,"Creativity,Manual Dexterity,Hygiene",Private,250000,Medium

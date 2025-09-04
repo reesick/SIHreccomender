@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Advisor - Testing Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .results-section {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .results-title {
+            color: #27ae60;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .result-card {
+            background: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .item {
+            background: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .item-details {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .score {
+            background: #27ae60;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            float: right;
+        }
+
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: #3498db;
+            font-size: 18px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Advisor - Testing Interface</h1>
+        
+        <form id="careerForm">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="student_id">Student ID (Optional):</label>
+                    <input type="text" id="student_id" placeholder="Enter student ID">
+                </div>
+
+                <div class="form-group">
+                    <label for="q1">Q1: What is your preferred study stream?</label>
+                    <select id="q1" required>
+                        <option value="">Select stream</option>
+                        <option value="Science">Science</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Commerce">Commerce</option>
+                        <option value="Vocational">Vocational</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q2">Q2: What type of job do you prefer?</label>
+                    <select id="q2" required>
+                        <option value="">Select job type</option>
+                        <option value="Government job">Government job</option>
+                        <option value="Private job">Private job</option>
+                        <option value="Entrepreneur">Entrepreneur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q3">Q3: College preference?</label>
+                    <select id="q3" required>
+                        <option value="">Select preference</option>
+                        <option value="Local college">Local college</option>
+                        <option value="Any college">Any college</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q4">Q4: How comfortable are you with Mathematics?</label>
+                    <select id="q4" required>
+                        <option value="">Select comfort level</option>
+                        <option value="MathsComfortable_High">High</option>
+                        <option value="MathsComfortable_Medium">Medium</option>
+                        <option value="MathsComfortable_Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q5">Q5: What type of work environment do you prefer?</label>
+                    <select id="q5" required>
+                        <option value="">Select work type</option>
+                        <option value="PreferredWorkType_Office">Office</option>
+                        <option value="PreferredWorkType_Lab">Lab</option>
+                        <option value="PreferredWorkType_Field">Field</option>
+                        <option value="PreferredWorkType_Creative">Creative</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Q6: Languages you are comfortable with:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lang_english" value="English">
+                            <label for="lang_english">English</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lang_hindi" value="Hindi">
+                            <label for="lang_hindi">Hindi</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lang_urdu" value="Urdu">
+                            <label for="lang_urdu">Urdu</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lang_kashmiri" value="Kashmiri">
+                            <label for="lang_kashmiri">Kashmiri</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="q7">Q7: Do you have budget constraints for education?</label>
+                    <select id="q7" required>
+                        <option value="">Select option</option>
+                        <option value="BudgetConstraint_Yes">Yes</option>
+                        <option value="BudgetConstraint_No">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q8">Q8: Are you willing to relocate for studies?</label>
+                    <select id="q8" required>
+                        <option value="">Select option</option>
+                        <option value="WillingToRelocate_Yes">Yes</option>
+                        <option value="WillingToRelocate_No">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Q9: What skills do you have?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill_computer" value="Computer">
+                            <label for="skill_computer">Computer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill_math" value="BasicMaths">
+                            <label for="skill_math">Basic Maths</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill_handicraft" value="Handicraft">
+                            <label for="skill_handicraft">Handicraft</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill_communication" value="Communication">
+                            <label for="skill_communication">Communication</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="skill_lab" value="Laboratory">
+                            <label for="skill_lab">Laboratory</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="q10">Q10: What is your long-term goal?</label>
+                    <select id="q10" required>
+                        <option value="">Select goal</option>
+                        <option value="LongTermGoal_Job">Job</option>
+                        <option value="LongTermGoal_HigherStudies">Higher Studies</option>
+                        <option value="LongTermGoal_Entrepreneurship">Entrepreneurship</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Get Career Recommendations</button>
+        </form>
+
+        <div class="loading" id="loading">
+            🔄 Getting your personalized recommendations...
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results-section" id="results">
+            <h2 class="results-title">Your Career Recommendations</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3>🎯 Recommended Careers</h3>
+                    <div id="careersResults"></div>
+                </div>
+                <div class="result-card">
+                    <h3>🏫 Recommended Colleges</h3>
+                    <div id="collegesResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000/recommend';
+
+        document.getElementById('careerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            await getRecommendations();
+        });
+
+        async function getRecommendations() {
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const results = document.getElementById('results');
+
+            // Hide previous results and errors
+            results.style.display = 'none';
+            error.style.display = 'none';
+            
+            // Show loading
+            loading.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            try {
+                // Collect form data
+                const formData = collectFormData();
+                console.log('Sending data:', formData);
+                
+                // Make API call
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
+                }
+
+                const data = await response.json();
+                console.log('Received data:', data);
+                displayResults(data);
+
+            } catch (err) {
+                console.error('Error:', err);
+                showError(`Failed to get recommendations: ${err.message}`);
+            } finally {
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get Career Recommendations';
+            }
+        }
+
+        function collectFormData() {
+            // Get languages
+            const languages = [];
+            document.querySelectorAll('input[type="checkbox"][id^="lang_"]:checked').forEach(cb => {
+                languages.push(cb.value);
+            });
+
+            // Get skills
+            const skills = [];
+            document.querySelectorAll('input[type="checkbox"][id^="skill_"]:checked').forEach(cb => {
+                skills.push(cb.value);
+            });
+
+            return {
+                student_id: document.getElementById('student_id').value || null,
+                answers: {
+                    q1: document.getElementById('q1').value,
+                    q2: document.getElementById('q2').value,
+                    q3: document.getElementById('q3').value,
+                    q4: document.getElementById('q4').value,
+                    q5: document.getElementById('q5').value,
+                    q6: languages,
+                    q7: document.getElementById('q7').value,
+                    q8: document.getElementById('q8').value,
+                    q9: skills,
+                    q10: document.getElementById('q10').value
+                }
+            };
+        }
+
+        function displayResults(data) {
+            const results = document.getElementById('results');
+            const careersDiv = document.getElementById('careersResults');
+            const collegesDiv = document.getElementById('collegesResults');
+
+            // Clear previous results
+            careersDiv.innerHTML = '';
+            collegesDiv.innerHTML = '';
+
+            // Display careers
+            if (data.careers && data.careers.length > 0) {
+                data.careers.forEach(career => {
+                    const careerDiv = document.createElement('div');
+                    careerDiv.className = 'item';
+                    careerDiv.innerHTML = `
+                        <div class="item-title">
+                            ${career.career}
+                            ${career.score ? `<span class="score">${Math.round(career.score * 100)}%</span>` : ''}
+                        </div>
+                        <div class="item-details">
+                            <strong>Stream:</strong> ${career.stream}<br>
+                            <strong>Degree:</strong> ${career.degree}<br>
+                            <strong>Why:</strong> ${career.reason}
+                        </div>
+                    `;
+                    careersDiv.appendChild(careerDiv);
+                });
+            } else {
+                careersDiv.innerHTML = '<p>No career recommendations found.</p>';
+            }
+
+            // Display colleges
+            if (data.colleges && data.colleges.length > 0) {
+                data.colleges.forEach(college => {
+                    const collegeDiv = document.createElement('div');
+                    collegeDiv.className = 'item';
+                    collegeDiv.innerHTML = `
+                        <div class="item-title">${college.college_name}</div>
+                        <div class="item-details">
+                            <strong>District:</strong> ${college.district}<br>
+                            <strong>Course:</strong> ${college.course}<br>
+                            <strong>Cutoff:</strong> ${college.cutoff || 'N/A'}<br>
+                            <strong>Why:</strong> ${college.reason}
+                        </div>
+                    `;
+                    collegesDiv.appendChild(collegeDiv);
+                });
+            } else {
+                collegesDiv.innerHTML = '<p>No college recommendations found.</p>';
+            }
+
+            // Show results
+            results.style.display = 'block';
+            results.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showError(message) {
+            const error = document.getElementById('error');
+            error.textContent = message;
+            error.style.display = 'block';
+        }
+
+        // Add some visual feedback for form validation
+        document.querySelectorAll('select[required]').forEach(select => {
+            select.addEventListener('change', function() {
+                if (this.value) {
+                    this.style.borderColor = '#27ae60';
+                } else {
+                    this.style.borderColor = '#ddd';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

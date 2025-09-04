@@ -1,0 +1,101 @@
+college_name,district,type,courses_offered,facilities,contact,cutoff_percentage,fees_annual
+Govt. Degree College Sopore,Anantnag,Private,"M.Com, BA Political Science, B.Sc Physics","Library, Lab",principal@gdc.com,NA,NA
+Islamia College Srinagar,Kupwara,Private,M.Com,"Library, Hostel",college123@gmail.com,80%,30000
+Govt. Degree College Baramulla,Anantnag,Private,"B.Tech CSE, B.Sc Physics","Lab, Sports",NA,70%,NA
+Cluster University Srinagar,Srinagar,Government,B.Ed,"Library, Hostel",contact@university.com,70%,30000
+Kashmir University,Pulwama,Private,"BA English, B.Sc Physics, B.Com","Lab, Sports",NA,65%,25000
+SP College,Shopian,Government,"B.Tech CSE, BA English","Hostel, Library, Lab, Sports",contact@university.com,75%,20000
+Govt. Degree College Baramulla,Anantnag,Government,B.Tech CSE,"Library, Hostel",principal@gdc.com,75%,NA
+Govt. Degree College Anantnag,Baramulla,Private,"B.Com, B.Tech CSE","Hostel, Sports",NA,80%,25000
+Central University of Kashmir,Budgam,Private,"MBA, B.Com","Hostel, Sports",NA,80%,30000
+SP College,Baramulla,Autonomous,"M.Com, M.Sc Chemistry, B.Com","Library, Lab",info@college.com,75%,30000
+Kashmir University,Kathua,Government,"B.Tech CSE, B.Sc Physics","Lab, Sports",college123@gmail.com,75%,25000
+Islamia College Srinagar,Srinagar,Private,"B.Ed, MBA","Library, Lab",principal@gdc.com,80%,NA
+Islamia College Srinagar,Jammu,Government,"M.Sc Chemistry, M.Com","Hostel, Library, Lab, Sports",info@college.com,NA,NA
+Govt. Degree College Sopore,Jammu,Government,B.Tech CSE,"Hostel, Sports",college123@gmail.com,70%,25000
+Govt. Degree College Sopore,Pulwama,Autonomous,M.Sc Chemistry,"Hostel, Sports",principal@gdc.com,65%,NA
+Govt. Degree College Sopore,Anantnag,Government,B.Com,"Library, Hostel",contact@university.com,70%,25000
+Govt. Degree College Srinagar,Anantnag,Government,"B.Ed, BA English","Hostel, Sports",college123@gmail.com,70%,15000
+Central University of Kashmir,Budgam,Private,M.Sc Chemistry,"Library, Lab",contact@university.com,65%,NA
+Kashmir University,Jammu,Government,"BCA, B.Sc Physics, B.Tech CSE","Library, Lab",NA,80%,25000
+Govt. Degree College Sopore,Pulwama,Autonomous,B.Com,"Hostel, Library, Lab, Sports",principal@gdc.com,65%,30000
+Kashmir University,Bandipora,Government,"MBA, BCA","Hostel, Sports",contact@university.com,80%,15000
+Islamia College Srinagar,Pulwama,Government,BA English,"Library, Hostel",college123@gmail.com,65%,20000
+Govt. Degree College Anantnag,Anantnag,Government,"BA Political Science, B.Ed, MBA","Hostel, Sports",principal@gdc.com,80%,20000
+Govt. Degree College Jammu,Shopian,Autonomous,"MBA, BCA, M.Com","Lab, Sports",NA,70%,30000
+Govt. Degree College Srinagar,Anantnag,Private,"B.Tech CSE, B.Ed","Hostel, Library, Lab, Sports",principal@gdc.com,70%,30000
+Cluster University Srinagar,Bandipora,Private,"B.Ed, BA English","Hostel, Sports",info@college.com,NA,30000
+Central University of Kashmir,Bandipora,Autonomous,"M.Sc Chemistry, BA English, B.Com","Library, Lab",info@college.com,NA,25000
+SP College,Bandipora,Government,"B.Ed, B.Tech CSE","Lab, Sports",principal@gdc.com,80%,30000
+Govt. Degree College Anantnag,Pulwama,Private,"BA English, M.Com","Hostel, Library, Lab, Sports",principal@gdc.com,75%,15000
+SP College,Kathua,Autonomous,"BA English, M.Com, B.Sc Physics","Lab, Sports",college123@gmail.com,80%,30000
+Islamia College Srinagar,Shopian,Private,"B.Sc Physics, B.Com","Hostel, Library, Lab, Sports",info@college.com,80%,20000
+Govt. Degree College Sopore,Srinagar,Private,M.Sc Chemistry,"Hostel, Library, Lab, Sports",info@college.com,75%,20000
+Govt. Degree College Anantnag,Anantnag,Government,"MBA, B.Tech CSE, B.Com","Hostel, Library, Lab, Sports",contact@university.com,70%,15000
+Govt. Degree College Anantnag,Bandipora,Government,BCA,"Library, Lab",contact@university.com,75%,20000
+Kashmir University,Shopian,Private,"MBA, B.Tech CSE","Library, Lab",college123@gmail.com,NA,NA
+Govt. Degree College Jammu,Kathua,Private,"M.Sc Chemistry, M.Com","Hostel, Library, Lab, Sports",principal@gdc.com,NA,25000
+Govt. Degree College Jammu,Bandipora,Private,"B.Com, M.Sc Chemistry, B.Sc Physics","Library, Lab",principal@gdc.com,75%,15000
+Govt. Degree College Baramulla,Jammu,Private,"BA English, M.Com, B.Com","Hostel, Library, Lab, Sports",principal@gdc.com,80%,25000
+Central University of Kashmir,Baramulla,Government,"BCA, B.Tech CSE, B.Com","Library, Hostel",college123@gmail.com,65%,25000
+Central University of Kashmir,Kupwara,Government,"B.Com, B.Tech CSE, B.Ed","Library, Lab",NA,65%,20000
+SP College,Kathua,Autonomous,"M.Sc Chemistry, B.Sc Physics, M.Com","Hostel, Sports",contact@university.com,NA,NA
+Govt. Degree College Srinagar,Baramulla,Government,MBA,"Library, Lab",info@college.com,NA,15000
+Govt. Degree College Baramulla,Pulwama,Government,"M.Sc Chemistry, B.Ed","Library, Lab",principal@gdc.com,NA,15000
+Govt. Degree College Jammu,Bandipora,Autonomous,"BA English, B.Ed, BA Political Science","Hostel, Library, Lab, Sports",contact@university.com,65%,15000
+Govt. Degree College Anantnag,Bandipora,Government,MBA,"Library, Lab",college123@gmail.com,65%,20000
+Govt. Degree College Anantnag,Shopian,Government,"BCA, B.Com","Lab, Sports",info@college.com,80%,20000
+Islamia College Srinagar,Baramulla,Autonomous,"MBA, B.Com, B.Ed","Lab, Sports",NA,65%,25000
+Govt. Degree College Baramulla,Baramulla,Government,B.Ed,"Hostel, Sports",info@college.com,80%,30000
+Central University of Kashmir,Bandipora,Government,B.Com,"Library, Hostel",principal@gdc.com,75%,20000
+Govt. Degree College Anantnag,Kupwara,Government,M.Com,"Hostel, Library, Lab, Sports",college123@gmail.com,80%,NA
+Islamia College Srinagar,Baramulla,Government,"M.Sc Chemistry, M.Com","Hostel, Library, Lab, Sports",college123@gmail.com,80%,20000
+Govt. Degree College Jammu,Jammu,Private,MBA,"Library, Lab",info@college.com,75%,NA
+Govt. Degree College Sopore,Bandipora,Government,"BA English, M.Sc Chemistry","Library, Hostel",NA,75%,15000
+Central University of Kashmir,Bandipora,Private,"M.Com, BA English","Hostel, Library, Lab, Sports",principal@gdc.com,80%,30000
+Govt. Degree College Baramulla,Kathua,Government,"B.Com, BA Political Science","Hostel, Library, Lab, Sports",NA,65%,25000
+Govt. Degree College Anantnag,Jammu,Government,"BA Political Science, BA English","Hostel, Sports",contact@university.com,70%,30000
+Islamia College Srinagar,Kupwara,Government,"B.Com, BA English, B.Tech CSE","Library, Lab",principal@gdc.com,65%,30000
+SP College,Anantnag,Government,"B.Sc Physics, B.Ed, BCA","Hostel, Library, Lab, Sports",contact@university.com,70%,30000
+Govt. Degree College Jammu,Anantnag,Autonomous,"BA Political Science, BCA, B.Sc Physics","Lab, Sports",college123@gmail.com,70%,30000
+Kashmir University,Shopian,Autonomous,"BA English, MBA","Hostel, Sports",principal@gdc.com,NA,15000
+Govt. Degree College Anantnag,Srinagar,Private,B.Ed,"Hostel, Library, Lab, Sports",principal@gdc.com,65%,20000
+Central University of Kashmir,Anantnag,Private,"M.Sc Chemistry, BCA, B.Ed","Library, Hostel",info@college.com,NA,30000
+Govt. Degree College Jammu,Baramulla,Government,"B.Com, MBA","Hostel, Library, Lab, Sports",info@college.com,65%,NA
+Kashmir University,Pulwama,Government,M.Com,"Lab, Sports",NA,75%,30000
+Islamia College Srinagar,Pulwama,Private,"BA Political Science, BA English","Hostel, Sports",info@college.com,70%,25000
+Govt. Degree College Sopore,Bandipora,Autonomous,BA English,"Hostel, Sports",contact@university.com,75%,15000
+Govt. Degree College Srinagar,Shopian,Government,"BA English, B.Sc Physics, BCA","Hostel, Sports",principal@gdc.com,75%,25000
+Kashmir University,Anantnag,Government,"BA Political Science, B.Sc Physics","Hostel, Library, Lab, Sports",principal@gdc.com,70%,15000
+Govt. Degree College Srinagar,Srinagar,Government,"M.Com, B.Tech CSE","Library, Lab",NA,65%,25000
+Central University of Kashmir,Bandipora,Private,BA English,"Hostel, Library, Lab, Sports",college123@gmail.com,NA,25000
+SP College,Jammu,Private,"BCA, B.Ed","Library, Hostel",contact@university.com,NA,30000
+Central University of Kashmir,Baramulla,Government,"BCA, M.Com, M.Sc Chemistry","Hostel, Library, Lab, Sports",principal@gdc.com,75%,NA
+Govt. Degree College Jammu,Pulwama,Private,"BA Political Science, B.Com","Library, Lab",college123@gmail.com,75%,20000
+Govt. Degree College Jammu,Jammu,Government,"M.Com, MBA, BCA","Library, Lab",info@college.com,80%,25000
+SP College,Srinagar,Private,"B.Tech CSE, B.Com, B.Ed","Library, Hostel",college123@gmail.com,70%,30000
+SP College,Baramulla,Government,"BA English, B.Ed","Hostel, Sports",info@college.com,65%,NA
+Govt. Degree College Srinagar,Jammu,Government,"M.Sc Chemistry, B.Ed","Hostel, Sports",contact@university.com,75%,25000
+Govt. Degree College Jammu,Jammu,Private,B.Ed,"Library, Hostel",NA,65%,NA
+Central University of Kashmir,Pulwama,Government,B.Tech CSE,"Lab, Sports",college123@gmail.com,NA,20000
+Kashmir University,Anantnag,Autonomous,BA English,"Lab, Sports",info@college.com,75%,20000
+Govt. Degree College Sopore,Budgam,Government,"B.Sc Physics, B.Com","Library, Hostel",contact@university.com,75%,15000
+Islamia College Srinagar,Budgam,Private,B.Tech CSE,"Library, Lab",info@college.com,80%,20000
+Central University of Kashmir,Shopian,Private,"BA English, M.Sc Chemistry, B.Sc Physics","Library, Hostel",NA,80%,30000
+Central University of Kashmir,Jammu,Private,"BCA, B.Sc Physics","Hostel, Library, Lab, Sports",NA,75%,20000
+Cluster University Srinagar,Srinagar,Private,"B.Com, M.Sc Chemistry, BCA","Hostel, Library, Lab, Sports",NA,65%,25000
+Govt. Degree College Anantnag,Kupwara,Private,M.Com,"Hostel, Sports",info@college.com,75%,NA
+Cluster University Srinagar,Kupwara,Private,BA Political Science,"Hostel, Sports",contact@university.com,80%,30000
+Govt. Degree College Sopore,Anantnag,Autonomous,BA Political Science,"Hostel, Library, Lab, Sports",contact@university.com,80%,25000
+Cluster University Srinagar,Anantnag,Autonomous,"B.Sc Physics, M.Sc Chemistry","Lab, Sports",NA,80%,30000
+Cluster University Srinagar,Kathua,Autonomous,"M.Com, BA English","Hostel, Sports",principal@gdc.com,65%,15000
+Kashmir University,Pulwama,Private,"M.Sc Chemistry, B.Sc Physics","Hostel, Sports",NA,80%,NA
+Central University of Kashmir,Kathua,Autonomous,"B.Tech CSE, M.Sc Chemistry","Library, Hostel",principal@gdc.com,80%,25000
+Govt. Degree College Sopore,Budgam,Private,"M.Sc Chemistry, BA English, M.Com","Library, Hostel",contact@university.com,65%,NA
+Govt. Degree College Anantnag,Pulwama,Private,B.Tech CSE,"Library, Lab",principal@gdc.com,80%,20000
+Cluster University Srinagar,Jammu,Autonomous,"B.Tech CSE, BA English","Hostel, Sports",info@college.com,80%,NA
+SP College,Baramulla,Private,"B.Com, BA English, MBA","Hostel, Library, Lab, Sports",NA,65%,20000
+SP College,Baramulla,Government,"BA English, MBA, B.Com","Hostel, Library, Lab, Sports",info@college.com,NA,25000
+SP College,Jammu,Government,"M.Com, BA Political Science, B.Ed","Library, Lab",college123@gmail.com,75%,30000
+Islamia College Srinagar,Jammu,Autonomous,M.Sc Chemistry,"Hostel, Sports",NA,NA,20000
+Islamia College Srinagar,Budgam,Government,"B.Ed, MBA","Hostel, Sports",principal@gdc.com,65%,30000

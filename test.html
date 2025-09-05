@@ -180,6 +180,19 @@
             display: none;
         }
 
+        .feedback-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .feedback-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .results-grid {
                 grid-template-columns: 1fr;
@@ -200,6 +213,15 @@
                 <div class="form-group">
                     <label for="student_id">Student ID (Optional):</label>
                     <input type="text" id="student_id" placeholder="Enter student ID">
+                </div>
+
+                <div class="form-group">
+                    <label for="education_level">Education Level:</label>
+                    <select id="education_level" required>
+                        <option value="">Select your current level</option>
+                        <option value="10th">After 10th Standard</option>
+                        <option value="12th">After 12th Standard</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -352,10 +374,29 @@
                 </div>
             </div>
         </div>
+
+        <div class="feedback-section" id="feedbackSection" style="display:none;">
+            <h3>Help us improve our recommendations</h3>
+            <div class="form-group">
+                <label for="selectedCareer">Which career interests you most?</label>
+                <select id="selectedCareer">
+                    <option value="">Select your preferred career</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="selectedCollege">Which college would you prefer?</label>
+                <select id="selectedCollege">
+                    <option value="">Select your preferred college</option>
+                </select>
+            </div>
+            <button type="button" onclick="submitFeedback()" class="submit-btn">Submit Feedback</button>
+        </div>
     </div>
 
     <script>
         const API_URL = 'http://localhost:8000/recommend';
+        let lastRecommendations = null;
+        let lastStudentId = null;
 
         document.getElementById('careerForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -425,6 +466,7 @@
 
             return {
                 student_id: document.getElementById('student_id').value || null,
+                education_level: document.getElementById('education_level').value,
                 answers: {
                     q1: document.getElementById('q1').value,
                     q2: document.getElementById('q2').value,
@@ -448,6 +490,10 @@
             // Clear previous results
             careersDiv.innerHTML = '';
             collegesDiv.innerHTML = '';
+
+            // Store for feedback
+            lastRecommendations = data;
+            lastStudentId = data.student_id;
 
             // Display careers
             if (data.careers && data.careers.length > 0) {
@@ -491,9 +537,69 @@
                 collegesDiv.innerHTML = '<p>No college recommendations found.</p>';
             }
 
-            // Show results
+            // Populate feedback dropdowns
+            populateFeedbackOptions(data);
+            
+            // Show results and feedback section
             results.style.display = 'block';
+            document.getElementById('feedbackSection').style.display = 'block';
             results.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function populateFeedbackOptions(data) {
+            const careerSelect = document.getElementById('selectedCareer');
+            const collegeSelect = document.getElementById('selectedCollege');
+            
+            // Clear existing options
+            careerSelect.innerHTML = '<option value="">Select your preferred career</option>';
+            collegeSelect.innerHTML = '<option value="">Select your preferred college</option>';
+            
+            // Add career options
+            data.careers.forEach(career => {
+                const option = document.createElement('option');
+                option.value = career.career;
+                option.textContent = `${career.career} (${career.stream})`;
+                careerSelect.appendChild(option);
+            });
+            
+            // Add college options
+            data.colleges.forEach(college => {
+                const option = document.createElement('option');
+                option.value = college.college_name;
+                option.textContent = `${college.college_name} - ${college.district}`;
+                collegeSelect.appendChild(option);
+            });
+        }
+
+        async function submitFeedback() {
+            const selectedCareer = document.getElementById('selectedCareer').value;
+            const selectedCollege = document.getElementById('selectedCollege').value;
+            
+            if (!selectedCareer && !selectedCollege) {
+                alert('Please select at least one preference');
+                return;
+            }
+            
+            try {
+                const response = await fetch('http://localhost:8000/feedback', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        student_id: lastStudentId,
+                        recommended_careers: lastRecommendations.careers.map(c => c.career),
+                        selected_career: selectedCareer || null,
+                        recommended_colleges: lastRecommendations.colleges.map(c => c.college_name),
+                        selected_college: selectedCollege || null
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Thank you for your feedback!');
+                    document.getElementById('feedbackSection').style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Feedback submission error:', error);
+            }
         }
 
         function showError(message) {

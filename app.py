@@ -26,7 +26,7 @@ app.add_middleware(
 )
 
 # Configure Gemini
-GEMINI_API_KEY = ""
+GEMINI_API_KEY = "AIzaSyBA9eA4lm5oPK_zkVelJa0uNGoCCFcZ53M"
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable is required")
 
@@ -82,7 +82,7 @@ def load_data():
     
     try:
         careers_df = pd.read_csv("data/careers.csv")
-        colleges_df = pd.read_csv("data/sample_colleges_db.csv")
+        colleges_df = pd.read_csv("data/jk_colleges_rows.csv")
         logger.info(f"Loaded {len(careers_df)} careers and {len(colleges_df)} colleges")
     except Exception as e:
         logger.error(f"Failed to load data: {e}")
@@ -230,26 +230,55 @@ def filter_colleges_for_careers(career_suggestions: List[Dict], student_profile:
     
     # Extract degree requirements from career suggestions
     degrees_needed = []
+    streams_needed = []
     for career in career_suggestions:
         degree = career.get('degree', '')
+        stream = career.get('stream', '')
         if degree:
             degrees_needed.append(degree)
+        if stream:
+            streams_needed.append(stream)
     
-    # Filter colleges that offer these degrees
-    if degrees_needed:
-        mask = filtered_df['courses_offered'].str.contains('|'.join(degrees_needed), na=False, case=False)
-        filtered_df = filtered_df[mask]
+    # Filter colleges that offer these degrees/streams
+    if degrees_needed or streams_needed:
+        # Use Programs_and_Courses_Offered_Combined column for course matching
+        course_mask = pd.Series([False] * len(filtered_df))
+        
+        for degree in degrees_needed:
+            # Match degree names (B.Tech, B.Sc, etc.)
+            degree_match = filtered_df['Programs_and_Courses_Offered_Combined'].str.contains(degree, na=False, case=False)
+            course_mask = course_mask | degree_match
+        
+        for stream in streams_needed:
+            # Match stream names in Streams column
+            stream_match = filtered_df['Streams'].str.contains(stream, na=False, case=False)
+            course_mask = course_mask | stream_match
+        
+        if course_mask.any():
+            filtered_df = filtered_df[course_mask]
     
-    # Filter by government preference
+    # Filter by government preference using Affiliation column
     job_pref = student_profile.get("job_preference", "")
     if job_pref == "Government":
-        filtered_df = filtered_df[filtered_df['type'] == 'Government']
+        # Look for government-affiliated colleges
+        govt_mask = (filtered_df['Affiliation'].str.contains('Government|University of Kashmir|University of Jammu|Central University', na=False, case=False))
+        filtered_df = filtered_df[govt_mask]
+    
+    # Filter by location preference if willing to relocate
+    location_pref = student_profile.get("location_preference", "")
+    if location_pref and not student_profile.get("relocate_willing", True):
+        # Filter by location (district)
+        location_match = filtered_df['Location'].str.contains(location_pref, na=False, case=False)
+        if location_match.any():
+            filtered_df = filtered_df[location_match]
     
     # Filter by budget constraint
     if student_profile.get("budget_constraint", False):
-        # Prefer NA fees (free government colleges) or lower fees
-        mask = (filtered_df['fees_annual'] == 'NA') | (pd.to_numeric(filtered_df['fees_annual'], errors='coerce') <= 25000)
-        filtered_df = filtered_df[mask]
+        # Check for colleges with no fees (government colleges) or reasonable fees
+        # Many government colleges have '-' or 'Not NIRF ranked' in fees columns, so we'll prioritize government colleges
+        govt_mask = (filtered_df['Affiliation'].str.contains('Government|University of Kashmir|University of Jammu', na=False, case=False))
+        if govt_mask.any():
+            filtered_df = filtered_df[govt_mask]
     
     return filtered_df.head(40)
 
@@ -312,8 +341,20 @@ Output exactly this format:
 def call_gemini_for_colleges(career_suggestions: List[Dict], colleges_data: pd.DataFrame, student_profile: Dict) -> List[Dict]:
     """Call Gemini to get college recommendations"""
     
-    # Prepare colleges data for prompt
-    colleges_list = colleges_data.to_dict('records')
+    # Prepare colleges data for prompt - use relevant columns from new schema
+    colleges_list = []
+    for _, college in colleges_data.iterrows():
+        college_info = {
+            "college_name": college.get('College_Name', ''),
+            "location": college.get('Location', ''),
+            "affiliation": college.get('Affiliation', ''),
+            "streams": college.get('Streams', ''),
+            "programs": college.get('Programs_and_Courses_Offered_Combined', ''),
+            "median_package": college.get('Median_Package_(Latest,_INR_LPA)', ''),
+            "contact": college.get('Contact Number', ''),
+            "id": college.get('id', '')
+        }
+        colleges_list.append(college_info)
     
     system_prompt = "You are a college advisor for J&K students. Output ONLY valid JSON, no other text or markdown."
     
@@ -326,15 +367,16 @@ Student Preferences: {json.dumps({
     "education_level": student_profile.get("education_level"),
     "budget_constraint": student_profile.get("budget_constraint"),
     "relocate_willing": student_profile.get("relocate_willing"),
-    "job_preference": student_profile.get("job_preference")
+    "job_preference": student_profile.get("job_preference"),
+    "location_preference": student_profile.get("location_preference")
 })}
 
-Task: Recommend top 5 colleges that offer courses matching these careers. Consider course availability, college type, location, and fees.
+Task: Recommend top 5 colleges that offer courses matching these careers. Consider program availability, college affiliation, location, and student preferences.
 
 Output exactly this format:
 {{
   "colleges": [
-    {{"college_name": "SP College", "district": "Shopian", "course": "B.Tech CSE", "cutoff": "75%", "reason": "explanation in max 30 words"}}
+    {{"college_name": "SP College", "district": "Srinagar", "course": "B.Tech CSE", "cutoff": "75%", "reason": "explanation in max 30 words"}}
   ]
 }}
 """
@@ -365,12 +407,12 @@ Output exactly this format:
         available_colleges = colleges_data.head(3).to_dict('records')
         fallback_colleges = []
         for college in available_colleges:
-            courses = college.get('courses_offered', '').split(',')
+            programs = college.get('Programs_and_Courses_Offered_Combined', '').split(',')
             fallback_colleges.append({
-                "college_name": college.get('college_name', 'Unknown College'),
-                "district": college.get('district', 'Unknown'),
-                "course": courses[0].strip() if courses else 'General',
-                "cutoff": college.get('cutoff_percentage', 'NA'),
+                "college_name": college.get('College_Name', 'Unknown College'),
+                "district": college.get('Location', 'Unknown'),
+                "course": programs[0].strip() if programs else 'General',
+                "cutoff": 'NA',
                 "reason": "Fallback recommendation due to API error"
             })
         return fallback_colleges

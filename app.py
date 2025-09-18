@@ -26,7 +26,7 @@ app.add_middleware(
 )
 
 # Configure Gemini
-GEMINI_API_KEY = "AIzaSyBA9eA4lm5oPK_zkVelJa0uNGoCCFcZ53M"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable is required")
 
